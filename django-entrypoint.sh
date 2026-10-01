@@ -66,6 +66,9 @@ then
     fi
 fi
 
+echo "Running migrations..." >&2
+python3 manage.py migrate --noinput --settings=volunteer_planner.settings.production
+
 echo "Starting main command ${*}" >&2
 "${@}" &
 pid=$!
