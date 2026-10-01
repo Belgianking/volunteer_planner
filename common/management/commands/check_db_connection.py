@@ -8,7 +8,7 @@ from django.db.utils import OperationalError
 class Command(BaseCommand):
     help = "This command checks availability of configured database."  # noqa: A003
 
-    requires_system_checks = False
+    requires_system_checks = [] # FIX: Django 4 requires a list or tuple
 
     def add_arguments(self, parser):
         parser.add_argument(
