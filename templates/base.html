@@ -10,50 +10,47 @@
 
     <title>{% block title %}{{ site.domain }}{% endblock %}</title>
 
-    <link rel="icon" type="image/x-icon" href="{% static "img/favicon.ico" %}">
-    <link rel="apple-touch-icon" href="{% static "img/apple-touch-icon.png" %}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{% static "img/apple-touch-icon-ipad.png" %}">
-    <link rel="apple-touch-icon" sizes="167x167" href="{% static "img/apple-touch-icon-ipad-retina.png" %}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/apple-touch-icon-iphone-retina.png" %}">
+    <!-- Icons -->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/apple-touch-icon-ipad.png' %}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{% static 'img/apple-touch-icon-ipad-retina.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon-iphone-retina.png' %}">
 
-    <!-- Bootstrap -->
+    <!-- Modern Bootstrap 3 Theme (Bootswatch Flatly) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@3/dist/flatly/bootstrap.min.css">
 
     <!-- Font-Awesome -->
-    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
 
-    <!-- Custom style sheet -->
-    <link href="{% static "custom/css/vp.css" %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'custom/css/vp.css' %}">
 
-    <!--[if lt IE 9]>
-        <script src="{% static "html5shiv/3.7.2/html5shiv.min.js" %}"></script>
-        <script src="{% static "respond/1.4.2/respond.min.js" %}"></script>
-    <![endif]-->
-    {% block additional_css %}
-    {% endblock %}
+    {% block additional_css %}{% endblock %}
 </head>
 
 <body role="document">
 
-{% include "partials/navigation_bar.html" %}
+    {% include "partials/navigation_bar.html" %}
 
-<div class="container" role="main">
-    <!-- Begin page content -->
-    {% block content %}
+    <div class="container" role="main">
+        {% block content %}
+        {% endblock %}
+    </div>
 
-    {% endblock %}
-    <!-- End page content -->
-</div>
-<!-- /container -->
+    {% include "partials/footer.html" %}
 
-{% include "partials/footer.html" %}
+    <!-- jQuery -->
+    <script src="{% static 'jquery/js/jquery.min.js' %}"></script>
 
-<script src="{% static "jquery/js/jquery.min.js" %}"></script>
-<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
-<script src="{% static "bootstrap/assets/js/ie10-viewport-bug-workaround.js" %}"></script>
-<script src="{% static "custom/js/vp.js" %}"></script>
-{% block additional_js %}
-{% endblock %}
+    <!-- Bootstrap 3 JS (compatible with Bootswatch 3) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'custom/js/vp.js' %}"></script>
+
+    {% block additional_js %}{% endblock %}
 </body>
 </html>
 <!-- Version: {% get_version %} -->
+
